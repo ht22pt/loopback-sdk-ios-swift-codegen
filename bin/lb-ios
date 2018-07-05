@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+// Copyright © 2018 Arrive Technologies. All rights reserved.
+// Node module: loopback-sdk-ios-swift-codegen
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
 const fs = require('fs');
 const path = require('path');
 const semver = require('semver');
@@ -18,6 +23,9 @@ const argv = optimist
   .describe('p', 'The prefix for generated iOS object names.')
   .default('p', '')
   .alias({ p: 'model-name-prefix' })
+  .describe('o', 'The postfix for generated iOS object names.')
+  .default('o', '')
+  .alias({ o: 'model-name-postfix' })
   .describe('v', 'Print more info about the progress.')
   .alias({ v: 'verbose' })
   .demand(2)
@@ -28,6 +36,7 @@ try {
   const appFile = path.resolve(argv._[0]);
   const clientDir = path.resolve(argv._[1]);
   const modelPrefix = argv['model-name-prefix'];
+  const modelPostfix = argv['model-name-postfix'];
   verbose = argv['verbose'];
 
   console.error('Loading LoopBack app %j', appFile);
@@ -37,8 +46,8 @@ try {
     console.error('Loopback version: ' + app.loopback.version);
   }
 
-  console.error('Generating iOS models with prefix %j', modelPrefix);
-  let files = generator.swiftModels(app, modelPrefix, verbose);
+  console.error('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
+  let files = generator.swiftModels(app, modelPrefix, modelPostfix, verbose);
 
   if (!fs.existsSync(clientDir)) {
     mkdirp.mkdirP.sync(clientDir);
