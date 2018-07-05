@@ -8,8 +8,15 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${file}"
+      "protocol": "inspector",
+      "name": "Debug",
+      "program": "${workspaceRoot}/bin/lb-ios",
+      "cwd": "${workspaceRoot}/",
+      "outputCapture": "std",
+      "args": [
+        "test-env/server/server.js",
+        "client/ios/gen-src"
+      ],
     }
   ]
 }
