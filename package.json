@@ -1,0 +1,62 @@
+{
+  "name": "loopback-sdk-ios-swift-codegen",
+  "version": "0.0.0",
+  "description": "Tool for auto-generating iOS client siwft source code for LoopBack App",
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "LoopBack",
+    "client",
+    "SDK",
+    "iOS",
+    "swift",
+    "codegen"
+  ],
+  "bin": {
+    "lb-ios": "bin/lb-ios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ht22pt/loopback-sdk-ios-swift-codegen.git"
+  },
+  "author": {
+    "name": "Thanh Nguyen",
+    "email": "ht22_pt@hotmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ht22pt/loopback-sdk-ios-swift-codegen/issues"
+  },
+  "scripts": {
+    "test": "test-env/bin/run-unittests"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "optimist": "^0.6.1",
+    "mkdirp": "^0.5.1",
+    "pascal-case": "^2.0.1",
+    "semver": "^5.5.0"
+  },
+  "devDependencies": {
+    "compression": "^1.7.2",
+    "cors": "^2.8.2",
+    "eslint": "^4.19.1",
+    "eslint-config-javascript": "^1.3.0",
+    "eslint-config-loopback": "^10.0.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "loopback": "^3.20.0",
+    "loopback-boot": "^2.27.1",
+    "loopback-component-explorer": "^6.0.1",
+    "loopback-datasource-juggler": "^3.22.1",
+    "nsp": "^3.2.1",
+    "serve-favicon": "^2.5.0"
+  }
+}
