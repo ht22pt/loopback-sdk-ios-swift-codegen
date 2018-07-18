@@ -28,6 +28,9 @@ const argv = optimist
   .alias({ o: 'model-name-postfix' })
   .describe('v', 'Print more info about the progress.')
   .alias({ v: 'verbose' })
+  .describe('a', 'App name')
+  .default('a', 'demo')
+  .alias({ a: 'app-name' })
   .demand(2)
   .argv;
 
@@ -37,6 +40,7 @@ try {
   const clientDir = path.resolve(argv._[1]);
   const modelPrefix = argv['model-name-prefix'];
   const modelPostfix = argv['model-name-postfix'];
+  const appName = argv['app-name'];
   verbose = argv['verbose'];
 
   console.error('Loading LoopBack app %j', appFile);
@@ -47,7 +51,7 @@ try {
   }
 
   console.error('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
-  let files = generator.swiftModels(app, modelPrefix, modelPostfix, verbose);
+  let files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, verbose);
 
   if (!fs.existsSync(clientDir)) {
     mkdirp.mkdirP.sync(clientDir);
