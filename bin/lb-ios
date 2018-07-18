@@ -19,7 +19,7 @@ const argv = optimist
     '\n    $0 [options] path-to-app ios-client-dir-path' +
     '\n' +
     '\nExample:' +
-    '\n    $0 -p XX server/app.js client/ios/gen-src')
+    '\n    $0 -p XX -o XX server/app.js client/ios/gen-src')
   .describe('p', 'The prefix for generated iOS object names.')
   .default('p', '')
   .alias({ p: 'model-name-prefix' })

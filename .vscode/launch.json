@@ -14,6 +14,10 @@
       "cwd": "${workspaceRoot}/",
       "outputCapture": "std",
       "args": [
+        "-p",
+        "AL",
+        "-o",
+        "Struct",
         "test-env/server/server.js",
         "client/ios/gen-src"
       ],
