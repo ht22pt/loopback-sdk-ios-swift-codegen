@@ -1,0 +1,787 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7AF45C3209B2199048B2C670 /* Pods_LoopbackSwiftCodeGenExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F386C79C337AACC912185A5 /* Pods_LoopbackSwiftCodeGenExampleTests.framework */; };
+		8E2CBC322100747D00329124 /* AlamofireLBAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC282100747D00329124 /* AlamofireLBAdapter.swift */; };
+		8E2CBC332100747D00329124 /* ALUserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2A2100747D00329124 /* ALUserStruct.swift */; };
+		8E2CBC342100747D00329124 /* ALAccessTokenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2B2100747D00329124 /* ALAccessTokenStruct.swift */; };
+		8E2CBC352100747D00329124 /* ALBaseStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2C2100747D00329124 /* ALBaseStruct.swift */; };
+		8E2CBC362100747D00329124 /* ALBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2D2100747D00329124 /* ALBaseModel.swift */; };
+		8E2CBC372100747D00329124 /* ALModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2E2100747D00329124 /* ALModelRepository.swift */; };
+		8E2CBC382100747D00329124 /* ALUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC2F2100747D00329124 /* ALUserRepository.swift */; };
+		8E2CBC392100747D00329124 /* ALRESTContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC302100747D00329124 /* ALRESTContract.swift */; };
+		8E2CBC3B21007B0C00329124 /* ALLoopbackConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2CBC3A21007B0C00329124 /* ALLoopbackConnector.swift */; };
+		8E40DB88210026BE00C6877D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DB87210026BE00C6877D /* AppDelegate.swift */; };
+		8E40DB8A210026BE00C6877D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DB89210026BE00C6877D /* ViewController.swift */; };
+		8E40DB8D210026BE00C6877D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E40DB8B210026BE00C6877D /* Main.storyboard */; };
+		8E40DB90210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DB8E210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodeld */; };
+		8E40DB92210026C000C6877D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E40DB91210026C000C6877D /* Assets.xcassets */; };
+		8E40DB95210026C000C6877D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E40DB93210026C000C6877D /* LaunchScreen.storyboard */; };
+		8E40DBA0210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DB9F210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.swift */; };
+		8E40DBAB210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E40DBAA210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.swift */; };
+		936CE82598664E7CEE3F1698 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9161EF0256F6D4FA73BF418 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework */; };
+		D1B10755E364874DB947E252 /* Pods_LoopbackSwiftCodeGenExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E8E951D0026FF8889FED0 /* Pods_LoopbackSwiftCodeGenExample.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8E40DB9C210026C100C6877D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E40DB7C210026BE00C6877D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E40DB83210026BE00C6877D;
+			remoteInfo = LoopbackSwiftCodeGenExample;
+		};
+		8E40DBA7210026C100C6877D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E40DB7C210026BE00C6877D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E40DB83210026BE00C6877D;
+			remoteInfo = LoopbackSwiftCodeGenExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		042E8E951D0026FF8889FED0 /* Pods_LoopbackSwiftCodeGenExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoopbackSwiftCodeGenExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F386C79C337AACC912185A5 /* Pods_LoopbackSwiftCodeGenExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoopbackSwiftCodeGenExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EDAA1D9B373473542907320 /* Pods-LoopbackSwiftCodeGenExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExampleTests/Pods-LoopbackSwiftCodeGenExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		67B3672F903D8EEC07D5CFB3 /* Pods-LoopbackSwiftCodeGenExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExampleTests/Pods-LoopbackSwiftCodeGenExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		7318AB1F465811B9B9CD305F /* Pods-LoopbackSwiftCodeGenExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExampleUITests/Pods-LoopbackSwiftCodeGenExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		85D05CC4797684B3DBBB8519 /* Pods-LoopbackSwiftCodeGenExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExample/Pods-LoopbackSwiftCodeGenExample.release.xcconfig"; sourceTree = "<group>"; };
+		8E2CBC282100747D00329124 /* AlamofireLBAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireLBAdapter.swift; sourceTree = "<group>"; };
+		8E2CBC2A2100747D00329124 /* ALUserStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALUserStruct.swift; sourceTree = "<group>"; };
+		8E2CBC2B2100747D00329124 /* ALAccessTokenStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALAccessTokenStruct.swift; sourceTree = "<group>"; };
+		8E2CBC2C2100747D00329124 /* ALBaseStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALBaseStruct.swift; sourceTree = "<group>"; };
+		8E2CBC2D2100747D00329124 /* ALBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALBaseModel.swift; sourceTree = "<group>"; };
+		8E2CBC2E2100747D00329124 /* ALModelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALModelRepository.swift; sourceTree = "<group>"; };
+		8E2CBC2F2100747D00329124 /* ALUserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALUserRepository.swift; sourceTree = "<group>"; };
+		8E2CBC302100747D00329124 /* ALRESTContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALRESTContract.swift; sourceTree = "<group>"; };
+		8E2CBC3A21007B0C00329124 /* ALLoopbackConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALLoopbackConnector.swift; sourceTree = "<group>"; };
+		8E40DB84210026BE00C6877D /* LoopbackSwiftCodeGenExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoopbackSwiftCodeGenExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E40DB87210026BE00C6877D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8E40DB89210026BE00C6877D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8E40DB8C210026BE00C6877D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8E40DB8F210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoopbackSwiftCodeGenExample.xcdatamodel; sourceTree = "<group>"; };
+		8E40DB91210026C000C6877D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E40DB94210026C000C6877D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8E40DB96210026C000C6877D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E40DB9B210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopbackSwiftCodeGenExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E40DB9F210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopbackSwiftCodeGenExampleTests.swift; sourceTree = "<group>"; };
+		8E40DBA1210026C100C6877D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E40DBA6210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoopbackSwiftCodeGenExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E40DBAA210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopbackSwiftCodeGenExampleUITests.swift; sourceTree = "<group>"; };
+		8E40DBAC210026C100C6877D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97841ABF76C6BBFD31D90724 /* Pods-LoopbackSwiftCodeGenExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExample/Pods-LoopbackSwiftCodeGenExample.debug.xcconfig"; sourceTree = "<group>"; };
+		CBB22A390019FFF6840BEAB5 /* Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExampleUITests/Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9161EF0256F6D4FA73BF418 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoopbackSwiftCodeGenExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8E40DB81210026BE00C6877D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B10755E364874DB947E252 /* Pods_LoopbackSwiftCodeGenExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DB98210026C100C6877D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AF45C3209B2199048B2C670 /* Pods_LoopbackSwiftCodeGenExampleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DBA3210026C100C6877D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				936CE82598664E7CEE3F1698 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E2CBC262100747D00329124 /* LoopbackConnector */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CBC292100747D00329124 /* ALBaseClass */,
+				8E2CBC282100747D00329124 /* AlamofireLBAdapter.swift */,
+				8E2CBC302100747D00329124 /* ALRESTContract.swift */,
+			);
+			path = LoopbackConnector;
+			sourceTree = "<group>";
+		};
+		8E2CBC292100747D00329124 /* ALBaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CBC2A2100747D00329124 /* ALUserStruct.swift */,
+				8E2CBC2B2100747D00329124 /* ALAccessTokenStruct.swift */,
+				8E2CBC2C2100747D00329124 /* ALBaseStruct.swift */,
+				8E2CBC2D2100747D00329124 /* ALBaseModel.swift */,
+				8E2CBC2E2100747D00329124 /* ALModelRepository.swift */,
+				8E2CBC2F2100747D00329124 /* ALUserRepository.swift */,
+			);
+			path = ALBaseClass;
+			sourceTree = "<group>";
+		};
+		8E40DB7B210026BE00C6877D = {
+			isa = PBXGroup;
+			children = (
+				8E40DB86210026BE00C6877D /* LoopbackSwiftCodeGenExample */,
+				8E40DB9E210026C100C6877D /* LoopbackSwiftCodeGenExampleTests */,
+				8E40DBA9210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests */,
+				8E40DB85210026BE00C6877D /* Products */,
+				F66582EF3FD3E622D2A5FA63 /* Pods */,
+				FE12B706DCBB133104F9C131 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8E40DB85210026BE00C6877D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E40DB84210026BE00C6877D /* LoopbackSwiftCodeGenExample.app */,
+				8E40DB9B210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.xctest */,
+				8E40DBA6210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E40DB86210026BE00C6877D /* LoopbackSwiftCodeGenExample */ = {
+			isa = PBXGroup;
+			children = (
+				8E2CBC262100747D00329124 /* LoopbackConnector */,
+				8E40DB87210026BE00C6877D /* AppDelegate.swift */,
+				8E40DB89210026BE00C6877D /* ViewController.swift */,
+				8E40DB8B210026BE00C6877D /* Main.storyboard */,
+				8E40DB91210026C000C6877D /* Assets.xcassets */,
+				8E40DB93210026C000C6877D /* LaunchScreen.storyboard */,
+				8E40DB96210026C000C6877D /* Info.plist */,
+				8E40DB8E210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodeld */,
+				8E2CBC3A21007B0C00329124 /* ALLoopbackConnector.swift */,
+			);
+			path = LoopbackSwiftCodeGenExample;
+			sourceTree = "<group>";
+		};
+		8E40DB9E210026C100C6877D /* LoopbackSwiftCodeGenExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E40DB9F210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.swift */,
+				8E40DBA1210026C100C6877D /* Info.plist */,
+			);
+			path = LoopbackSwiftCodeGenExampleTests;
+			sourceTree = "<group>";
+		};
+		8E40DBA9210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8E40DBAA210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.swift */,
+				8E40DBAC210026C100C6877D /* Info.plist */,
+			);
+			path = LoopbackSwiftCodeGenExampleUITests;
+			sourceTree = "<group>";
+		};
+		F66582EF3FD3E622D2A5FA63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97841ABF76C6BBFD31D90724 /* Pods-LoopbackSwiftCodeGenExample.debug.xcconfig */,
+				85D05CC4797684B3DBBB8519 /* Pods-LoopbackSwiftCodeGenExample.release.xcconfig */,
+				3EDAA1D9B373473542907320 /* Pods-LoopbackSwiftCodeGenExampleTests.debug.xcconfig */,
+				67B3672F903D8EEC07D5CFB3 /* Pods-LoopbackSwiftCodeGenExampleTests.release.xcconfig */,
+				CBB22A390019FFF6840BEAB5 /* Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig */,
+				7318AB1F465811B9B9CD305F /* Pods-LoopbackSwiftCodeGenExampleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE12B706DCBB133104F9C131 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				042E8E951D0026FF8889FED0 /* Pods_LoopbackSwiftCodeGenExample.framework */,
+				2F386C79C337AACC912185A5 /* Pods_LoopbackSwiftCodeGenExampleTests.framework */,
+				D9161EF0256F6D4FA73BF418 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8E40DB83210026BE00C6877D /* LoopbackSwiftCodeGenExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E40DBAF210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExample" */;
+			buildPhases = (
+				A21A2C87D9B4BC56585B37F6 /* [CP] Check Pods Manifest.lock */,
+				8E40DB80210026BE00C6877D /* Sources */,
+				8E40DB81210026BE00C6877D /* Frameworks */,
+				8E40DB82210026BE00C6877D /* Resources */,
+				F85D0946D7578048B6316379 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoopbackSwiftCodeGenExample;
+			productName = LoopbackSwiftCodeGenExample;
+			productReference = 8E40DB84210026BE00C6877D /* LoopbackSwiftCodeGenExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8E40DB9A210026C100C6877D /* LoopbackSwiftCodeGenExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E40DBB2210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExampleTests" */;
+			buildPhases = (
+				F6B51A40A9ACF97BF34A1FBC /* [CP] Check Pods Manifest.lock */,
+				8E40DB97210026C100C6877D /* Sources */,
+				8E40DB98210026C100C6877D /* Frameworks */,
+				8E40DB99210026C100C6877D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E40DB9D210026C100C6877D /* PBXTargetDependency */,
+			);
+			name = LoopbackSwiftCodeGenExampleTests;
+			productName = LoopbackSwiftCodeGenExampleTests;
+			productReference = 8E40DB9B210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8E40DBA5210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E40DBB5210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExampleUITests" */;
+			buildPhases = (
+				1B8BCBB3D28DDFB08D5CE436 /* [CP] Check Pods Manifest.lock */,
+				8E40DBA2210026C100C6877D /* Sources */,
+				8E40DBA3210026C100C6877D /* Frameworks */,
+				8E40DBA4210026C100C6877D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E40DBA8210026C100C6877D /* PBXTargetDependency */,
+			);
+			name = LoopbackSwiftCodeGenExampleUITests;
+			productName = LoopbackSwiftCodeGenExampleUITests;
+			productReference = 8E40DBA6210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E40DB7C210026BE00C6877D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Arrive Technologies";
+				TargetAttributes = {
+					8E40DB83210026BE00C6877D = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					8E40DB9A210026C100C6877D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 8E40DB83210026BE00C6877D;
+					};
+					8E40DBA5210026C100C6877D = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 8E40DB83210026BE00C6877D;
+					};
+				};
+			};
+			buildConfigurationList = 8E40DB7F210026BE00C6877D /* Build configuration list for PBXProject "LoopbackSwiftCodeGenExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8E40DB7B210026BE00C6877D;
+			productRefGroup = 8E40DB85210026BE00C6877D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E40DB83210026BE00C6877D /* LoopbackSwiftCodeGenExample */,
+				8E40DB9A210026C100C6877D /* LoopbackSwiftCodeGenExampleTests */,
+				8E40DBA5210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8E40DB82210026BE00C6877D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E40DB95210026C000C6877D /* LaunchScreen.storyboard in Resources */,
+				8E40DB92210026C000C6877D /* Assets.xcassets in Resources */,
+				8E40DB8D210026BE00C6877D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DB99210026C100C6877D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DBA4210026C100C6877D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B8BCBB3D28DDFB08D5CE436 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoopbackSwiftCodeGenExampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A21A2C87D9B4BC56585B37F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoopbackSwiftCodeGenExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B51A40A9ACF97BF34A1FBC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoopbackSwiftCodeGenExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F85D0946D7578048B6316379 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExample/Pods-LoopbackSwiftCodeGenExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExample/Pods-LoopbackSwiftCodeGenExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E40DB80210026BE00C6877D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E2CBC342100747D00329124 /* ALAccessTokenStruct.swift in Sources */,
+				8E2CBC322100747D00329124 /* AlamofireLBAdapter.swift in Sources */,
+				8E2CBC352100747D00329124 /* ALBaseStruct.swift in Sources */,
+				8E40DB8A210026BE00C6877D /* ViewController.swift in Sources */,
+				8E40DB88210026BE00C6877D /* AppDelegate.swift in Sources */,
+				8E40DB90210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodeld in Sources */,
+				8E2CBC3B21007B0C00329124 /* ALLoopbackConnector.swift in Sources */,
+				8E2CBC332100747D00329124 /* ALUserStruct.swift in Sources */,
+				8E2CBC362100747D00329124 /* ALBaseModel.swift in Sources */,
+				8E2CBC392100747D00329124 /* ALRESTContract.swift in Sources */,
+				8E2CBC382100747D00329124 /* ALUserRepository.swift in Sources */,
+				8E2CBC372100747D00329124 /* ALModelRepository.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DB97210026C100C6877D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E40DBA0210026C100C6877D /* LoopbackSwiftCodeGenExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E40DBA2210026C100C6877D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E40DBAB210026C100C6877D /* LoopbackSwiftCodeGenExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E40DB9D210026C100C6877D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E40DB83210026BE00C6877D /* LoopbackSwiftCodeGenExample */;
+			targetProxy = 8E40DB9C210026C100C6877D /* PBXContainerItemProxy */;
+		};
+		8E40DBA8210026C100C6877D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E40DB83210026BE00C6877D /* LoopbackSwiftCodeGenExample */;
+			targetProxy = 8E40DBA7210026C100C6877D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8E40DB8B210026BE00C6877D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E40DB8C210026BE00C6877D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8E40DB93210026C000C6877D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E40DB94210026C000C6877D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8E40DBAD210026C100C6877D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8E40DBAE210026C100C6877D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8E40DBB0210026C100C6877D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97841ABF76C6BBFD31D90724 /* Pods-LoopbackSwiftCodeGenExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = LoopbackSwiftCodeGenExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8E40DBB1210026C100C6877D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85D05CC4797684B3DBBB8519 /* Pods-LoopbackSwiftCodeGenExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = LoopbackSwiftCodeGenExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		8E40DBB3210026C100C6877D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EDAA1D9B373473542907320 /* Pods-LoopbackSwiftCodeGenExampleTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YZRF76V5W;
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arrive.tagnsave.LoopbackSwiftCodeGenExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoopbackSwiftCodeGenExample.app/LoopbackSwiftCodeGenExample";
+			};
+			name = Debug;
+		};
+		8E40DBB4210026C100C6877D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67B3672F903D8EEC07D5CFB3 /* Pods-LoopbackSwiftCodeGenExampleTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YZRF76V5W;
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arrive.tagnsave.LoopbackSwiftCodeGenExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoopbackSwiftCodeGenExample.app/LoopbackSwiftCodeGenExample";
+			};
+			name = Release;
+		};
+		8E40DBB6210026C100C6877D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBB22A390019FFF6840BEAB5 /* Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YZRF76V5W;
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arrive.tagnsave.LoopbackSwiftCodeGenExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LoopbackSwiftCodeGenExample;
+			};
+			name = Debug;
+		};
+		8E40DBB7210026C100C6877D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7318AB1F465811B9B9CD305F /* Pods-LoopbackSwiftCodeGenExampleUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YZRF76V5W;
+				INFOPLIST_FILE = LoopbackSwiftCodeGenExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arrive.tagnsave.LoopbackSwiftCodeGenExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LoopbackSwiftCodeGenExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E40DB7F210026BE00C6877D /* Build configuration list for PBXProject "LoopbackSwiftCodeGenExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E40DBAD210026C100C6877D /* Debug */,
+				8E40DBAE210026C100C6877D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E40DBAF210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E40DBB0210026C100C6877D /* Debug */,
+				8E40DBB1210026C100C6877D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E40DBB2210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E40DBB3210026C100C6877D /* Debug */,
+				8E40DBB4210026C100C6877D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E40DBB5210026C100C6877D /* Build configuration list for PBXNativeTarget "LoopbackSwiftCodeGenExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E40DBB6210026C100C6877D /* Debug */,
+				8E40DBB7210026C100C6877D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8E40DB8E210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8E40DB8F210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodel */,
+			);
+			currentVersion = 8E40DB8F210026BE00C6877D /* LoopbackSwiftCodeGenExample.xcdatamodel */;
+			path = LoopbackSwiftCodeGenExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8E40DB7C210026BE00C6877D /* Project object */;
+}
