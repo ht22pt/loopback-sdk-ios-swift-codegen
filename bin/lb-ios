@@ -44,21 +44,21 @@ try {
   verbose = argv['verbose'];
 
   console.error('Loading LoopBack app %j', appFile);
-  let app = require(appFile);
+  const app = require(appFile);
   assertLoopBackVersion(app);
   if (verbose) {
     console.error('Loopback version: ' + app.loopback.version);
   }
 
   console.error('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
-  let files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, verbose);
+  const files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, verbose);
 
   if (!fs.existsSync(clientDir)) {
     mkdirp.mkdirP.sync(clientDir);
   }
 
   for (let objcFileName in files) {
-    let filepath = path.resolve(clientDir, objcFileName);
+    const filepath = path.resolve(clientDir, objcFileName);
     console.log('Writing: ' + filepath);
     if (verbose) {
       console.error('--');
