@@ -11,6 +11,7 @@ const semver = require('semver');
 const mkdirp = require('mkdirp');
 const optimist = require('optimist');
 
+const logger = require('../lib/logger');
 const generator = require('../lib/swift-codegen');
 
 const argv = optimist
@@ -43,14 +44,14 @@ try {
   const appName = argv['app-name'];
   verbose = argv['verbose'];
 
-  console.error('Loading LoopBack app %j', appFile);
+  logger.info('Loading LoopBack app %j', appFile);
   const app = require(appFile);
   assertLoopBackVersion(app);
   if (verbose) {
-    console.error('Loopback version: ' + app.loopback.version);
+    logger.error('Loopback version: ' + app.loopback.version);
   }
 
-  console.error('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
+  logger.info('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
   const files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, verbose);
 
   if (!fs.existsSync(clientDir)) {
@@ -59,20 +60,20 @@ try {
 
   for (let objcFileName in files) {
     const filepath = path.resolve(clientDir, objcFileName);
-    console.log('Writing: ' + filepath);
+    logger.info('Writing: ' + filepath);
     if (verbose) {
-      console.error('--');
-      console.error(files[objcFileName]);
-      console.error('--\n');
+      logger.error('--');
+      logger.error(files[objcFileName]);
+      logger.error('--\n');
     }
     fs.writeFileSync(filepath, files[objcFileName]);
   }
 
-  console.error('Done\n');
+  logger.info('Done\n');
 } catch (err) {
-  console.error('\nERROR: ' + err.message + '\n');
+  logger.error('\nERROR: ' + err.message + '\n');
   if (verbose) {
-    console.error(err.stack);
+    logger.error(err.stack);
   }
   process.exitCode = 1;
 }
