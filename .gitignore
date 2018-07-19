@@ -64,3 +64,4 @@ package-lock.json
 yarn.lock
 test-env/client/ios/LoopbackSwiftCodeGenExample/Pods
 test-env/client/ios/LoopbackSwiftCodeGenExample/Podfile.lock
+test-env/client/ios/LoopbackSwiftCodeGenExample/LoopbackSwiftCodeGenExample.xcworkspace
