@@ -32,7 +32,11 @@
     "dataSource": "db",
     "public": false
   },
-  "book": {
+  "Book": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Address": {
     "dataSource": "db",
     "public": true
   }

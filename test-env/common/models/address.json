@@ -1,0 +1,28 @@
+{
+  "name": "Address",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "house_number": {
+      "type": "string",
+      "required": true
+    },
+    "more_info": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "books": {
+      "type": "hasMany",
+      "model": "Book",
+      "foreignKey": "addressId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

@@ -1,5 +1,5 @@
 {
-  "name": "book",
+  "name": "Book",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
@@ -10,6 +10,9 @@
     "author": {
       "type": "string",
       "required": true
+    },
+    "data": {
+      "type": "string"
     },
     "totalPages": {
       "type": "number",
@@ -27,7 +30,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "address": {
+      "type": "belongsTo",
+      "model": "Address",
+      "foreignKey": "addressId"
+    }
+  },
   "acls": [],
   "methods": []
 }
