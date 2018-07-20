@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ALLoopbackConnector {
     let appDelegate:AppDelegate? = (UIApplication.shared.delegate as! AppDelegate?)
@@ -20,7 +21,7 @@ class ALLoopbackConnector {
     private init() {
         
         // Read configuration from Utility
-        var defaultConnection:String = "http://127.0.0.1:3000/api"
+        let defaultConnection:String = "http://127.0.0.1:3000/api"
         
         self.adapter = AlamofireLBAdapter(url: URL(string:defaultConnection)!, allowsInvalidSSLCertificate: true)
         
