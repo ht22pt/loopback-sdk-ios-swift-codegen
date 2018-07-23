@@ -1,0 +1,26 @@
+{
+  "include": [
+    "create",
+    "__get__address",
+    "patchOrCreate",
+    "replaceOrCreate",
+    "upsertWithWhere",
+    "exists",
+    "findById",
+    "replaceById",
+    "find",
+    "findOne",
+    "deleteById",
+    "updateAll",
+    "patchAttributes",
+    "createChangeStream",
+    "testNumberMethod",
+    "testStringMethod",
+    "testBoolMethod",
+    "testArrayMethod",
+    "testObjectMethod"
+  ],
+  "execute": [
+
+  ]
+}
