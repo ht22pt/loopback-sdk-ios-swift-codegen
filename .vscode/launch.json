@@ -18,6 +18,10 @@
         "AL",
         "-o",
         "Struct",
+        "-i",
+        "./include/",
+        "-e",
+        "./include/",
         "test-env/server/server.js",
         "client/ios/gen-src"
       ],

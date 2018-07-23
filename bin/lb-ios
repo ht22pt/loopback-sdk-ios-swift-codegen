@@ -32,6 +32,12 @@ const argv = optimist
   .describe('a', 'App name')
   .default('a', 'demo')
   .alias({ a: 'app-name' })
+  .describe('i', 'Path to check include method')
+  .default('i', '')
+  .alias({ i: 'include-method-path' })
+  .describe('e', 'Path to check execyte method')
+  .default('e', '')
+  .alias({ e: 'execute-method-path' })
   .demand(2)
   .argv;
 
@@ -42,6 +48,8 @@ try {
   const modelPrefix = argv['model-name-prefix'];
   const modelPostfix = argv['model-name-postfix'];
   const appName = argv['app-name'];
+  const includePath = argv['include-method-path'];
+  const executePath = argv['execute-method-path'];
   verbose = argv['verbose'];
 
   logger.info('Loading LoopBack app %j', appFile);
@@ -52,7 +60,7 @@ try {
   }
 
   logger.info('Generating iOS models with prefix %j and postfix %j', modelPrefix, modelPostfix);
-  const files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, verbose);
+  const files = generator.swiftModels(app, appName, modelPrefix, modelPostfix, includePath, executePath, verbose);
 
   if (!fs.existsSync(clientDir)) {
     mkdirp.mkdirP.sync(clientDir);
