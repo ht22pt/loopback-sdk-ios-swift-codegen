@@ -1,0 +1,90 @@
+#!/usr/bin/env node
+
+// Copyright © 2018 Arrive Technologies. All rights reserved.
+// Node module: loopback-sdk-ios-swift-codegen
+// This file is licensed under the MIT License.
+// License text available at https://opensource.org/licenses/MIT
+
+const fs = require('fs');
+const path = require('path');
+const semver = require('semver');
+const mkdirp = require('mkdirp');
+const optimist = require('optimist');
+
+const logger = require('../lib/logger');
+const generator = require('../lib/swift-executegen');
+
+const argv = optimist
+  .usage('Generate iOS Swift client code for your LoopBack application.' +
+    '\nUsage:' +
+    '\n    $0 [options] path-to-app ios-client-dir-path' +
+    '\n' +
+    '\nExample:' +
+    '\n    $0 -p XX -o XX server/app.js client/ios/gen-src')
+  .describe('v', 'Print more info about the progress.')
+  .alias({ v: 'verbose' })
+  .demand(2)
+  .argv;
+
+let verbose;
+try {
+  const appFile = path.resolve(argv._[0]);
+  const executeDir = path.resolve(argv._[1]);
+  verbose = argv['verbose'];
+
+  logger.info('Loading LoopBack app %j', appFile);
+  const app = require(appFile);
+  assertLoopBackVersion(app);
+  if (verbose) {
+    logger.error('Loopback version: ' + app.loopback.version);
+  }
+
+  logger.info('Generating iOS execute models');
+  const files = generator.swiftExecuteModels(app, verbose);
+
+  if (!fs.existsSync(executeDir)) {
+    mkdirp.mkdirP.sync(executeDir);
+  }
+
+  for (let objcFileName in files) {
+    const filepath = path.resolve(executeDir, objcFileName);
+    logger.info('Writing: ' + filepath);
+    if (verbose) {
+      logger.error('--');
+      logger.error(files[objcFileName]);
+      logger.error('--\n');
+    }
+    fs.writeFileSync(filepath, files[objcFileName]);
+  }
+
+  logger.info('Done\n');
+} catch (err) {
+  logger.error('\nERROR: ' + err.message + '\n');
+  if (verbose) {
+    logger.error(err.stack);
+  }
+  process.exitCode = 1;
+}
+
+// The app.js scaffolded by `slc lb project` loads strong-agent module that
+// used to have a bug where it prevented the application from exiting.
+// To work around that issue, we are explicitly exiting here.
+//
+// The exit is deferred to the next tick in order to prevent the Node bug:
+// https://github.com/joyent/node/issues/3584
+process.nextTick(function () {
+  process.exit();
+});
+
+// --- helpers --- //
+
+function assertLoopBackVersion (app) {
+  // app.loopback property was added before v2.0.0.
+  // If app.loopback is undefined, then it's an unsupported version.
+  if (typeof app.loopback === 'undefined' || semver.lt(app.loopback.version, '2.0.0')) {
+    throw new Error('LoopBack version too old\n' +
+      'The code generator does not support applications based\n' +
+      'on LoopBack versions older than 2.0.0. Please upgrade your\n' +
+      'project to a recent version of LoopBack and run this tool again.\n');
+  }
+}
