@@ -2,7 +2,7 @@
 //  ALBookRepository.swift
 //  demo
 //
-//  Created by Technologies Generator Tools on 19/07/2018.
+//  Created by Technologies Generator Tools on 26/07/2018.
 //  Copyright © 2018 Arrive Technologies. All rights reserved.
 //
 
@@ -10,14 +10,13 @@ import Foundation
 import SwiftyJSON
 
 class ALBookRepository: ALBaseModel {
-
   convenience required init() {
     self.init(className: "Book", prefix: "AL", postfix: "Struct")
     self.repository(with: "Books")
   }
 
   func modelWithJson(data:JSON) -> ALBookStruct {
-      return ALBookStruct(data: data)
+    return ALBookStruct(data: data)
   }
 
   func modelAddressWithJson(data:JSON) -> ALAddressStruct {
@@ -27,7 +26,6 @@ class ALBookRepository: ALBaseModel {
   override func contract() -> ALRESTContract? {
     let contract:ALRESTContract? = super.contract()
 
-    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/address", verb: "GET"), forMethod: "\(className).get__address")
     contract?.add(ALRESTContractItem(pattern: "/\(className)/", verb: "POST"), forMethod: "\(className).create")
     contract?.add(ALRESTContractItem(pattern: "/\(className)/", verb: "PATCH"), forMethod: "\(className).patchOrCreate")
     contract?.add(ALRESTContractItem(pattern: "/\(className)/replaceOrCreate", verb: "POST"), forMethod: "\(className).replaceOrCreate")
@@ -39,261 +37,258 @@ class ALBookRepository: ALBaseModel {
     contract?.add(ALRESTContractItem(pattern: "/\(className)/findOne", verb: "GET"), forMethod: "\(className).findOne")
     contract?.add(ALRESTContractItem(pattern: "/\(className)/update", verb: "POST"), forMethod: "\(className).updateAll")
     contract?.add(ALRESTContractItem(pattern: "/\(className)/:id", verb: "DEL"), forMethod: "\(className).deleteById")
-    contract?.add(ALRESTContractItem(pattern: "/\(className)/count", verb: "GET"), forMethod: "\(className).count")
+    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/testNumberMethod", verb: "POST"), forMethod: "\(className).testNumberMethod")
+    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/String", verb: "POST"), forMethod: "\(className).testStringMethod")
+    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/testBoolMethod", verb: "GET"), forMethod: "\(className).testBoolMethod")
+    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/testArrayMethod", verb: "PUT"), forMethod: "\(className).testArrayMethod")
+    contract?.add(ALRESTContractItem(pattern: "/\(className)/:id/testObjectMethod", verb: "POST"), forMethod: "\(className).testObjectMethod")
     return contract
   }
 
 
-  func get__address(with id:id
-    ,success: @escaping (Address) -> Void
-    ,failure: @escaping ALFailureBlock) {
-    invokeStaticMethod("get__address",
-      parameters: [ id: id ],
-      success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelAddressWithJson(data: value as! SwiftyJSON.JSON))
-      }, failure: failure)
-    )
-  }
-
-  func get__address(with id:id, refresh:NSNumber
-    ,success: @escaping (Address) -> Void
-    ,failure: @escaping ALFailureBlock) {
-    invokeStaticMethod("get__address",
-      parameters: [ id: id, refresh: refresh ],
-      success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelAddressWithJson(data: value as! SwiftyJSON.JSON))
-      }, failure: failure)
-    )
-  }
-
-  func create(with data:Book
-    ,success: @escaping (Book) -> Void
+  func create(with data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("create",
-      parameters: [  ],
+      parameters: [ : ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func patchOrCreate(with data:Book
-    ,success: @escaping (Book) -> Void
+  func patchOrCreate(with data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("patchOrCreate",
-      parameters: [  ],
+      parameters: [ : ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func replaceOrCreate(with data:Book
-    ,success: @escaping (Book) -> Void
+  func replaceOrCreate(with data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("replaceOrCreate",
-      parameters: [  ],
+      parameters: [ : ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func upsert(with data:Book
-    ,success: @escaping (Book) -> Void
+  func upsert(with data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("upsertWithWhere",
-      parameters: [  ],
+      parameters: [ : ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func upsert(with where:[AnyHashable:Any], data:Book
-    ,success: @escaping (Book) -> Void
+  func upsert(with filterWhere:[AnyHashable:Any], data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("upsertWithWhere",
-      parameters: [ where: where ],
+      parameters: [ "where": filterWhere ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func exists(with id:id
-    ,success: @escaping (BOOL) -> Void
+  func exists(with id:Any
+    ,success: @escaping (Bool) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("exists",
-      parameters: [ id: id ],
+      parameters: [ "id": id ],
       success: { value in
+        // Return bool data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        success((value as! SwiftyJSON.JSON)["exists"].bool!)
       }, failure: failure)
-    )
   }
 
-  func find(by id:id
-    ,success: @escaping (Book) -> Void
+  func find(by id:Any
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("findById",
-      parameters: [ id: id ],
+      parameters: [ "id": id ],
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func find(by id:id, filter:[AnyHashable:Any]
-    ,success: @escaping (Book) -> Void
+  func find(by id:Any, filter:[AnyHashable:Any]
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("findById",
-      parameters: [ id: id, filter: filter ],
+      parameters: [ "id": id, "filter": filter ],
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func replace(by id:id, data:Book
-    ,success: @escaping (Book) -> Void
+  func replace(by id:Any, data:ALBookStruct
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("replaceById",
-      parameters: [ id: id ],
+      parameters: [ "id": id ],
       bodyParameters: data.toDictionary(), 
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
   func find(with success: @escaping ([SwiftyJSON.JSON]) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("find",
-      parameters: [  ],
+      parameters: [ : ],
       success: { value in
+        // Return array object data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        var models = [SwiftyJSON.JSON]()
+        if let arrayData = (value as! SwiftyJSON.JSON).array {
+            for row in arrayData {
+                models.append(row)
+            }
+        }
+        success(models)
       }, failure: failure)
-    )
   }
 
   func find(with filter:[AnyHashable:Any]
     ,success: @escaping ([SwiftyJSON.JSON]) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("find",
-      parameters: [ filter: filter ],
+      parameters: [ "filter": filter ],
       success: { value in
+        // Return array object data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        var models = [SwiftyJSON.JSON]()
+        if let arrayData = (value as! SwiftyJSON.JSON).array {
+            for row in arrayData {
+                models.append(row)
+            }
+        }
+        success(models)
       }, failure: failure)
-    )
   }
 
-  func findOne(with success: @escaping (Book) -> Void
+  func findOne(with success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("findOne",
-      parameters: [  ],
+      parameters: [ : ],
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
   func findOne(with filter:[AnyHashable:Any]
-    ,success: @escaping (Book) -> Void
+    ,success: @escaping (ALBookStruct) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("findOne",
-      parameters: [ filter: filter ],
+      parameters: [ "filter": filter ],
       success: { value in
-        // Return model type
-        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success(self.modelWithJson(data: value as! SwiftyJSON.JSON))
       }, failure: failure)
-    )
   }
 
-  func updateAll(with data:Book
+  func updateAll(with data:ALBookStruct
     ,success: @escaping (NSNumber) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("updateAll",
-      parameters: [  ],
+      parameters: [ : ],
       bodyParameters: data.toDictionary(), 
       success: { value in
         // Return number data
         assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success((value as! SwiftyJSON.JSON)["updateAll"].number)
+        success((value as! SwiftyJSON.JSON)["info"].number!)
       }, failure: failure)
-    )
   }
 
-  func updateAll(with where:[AnyHashable:Any], data:Book
+  func updateAll(with filterWhere:[AnyHashable:Any], data:ALBookStruct
     ,success: @escaping (NSNumber) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("updateAll",
-      parameters: [ where: where ],
+      parameters: [ "where": filterWhere ],
       bodyParameters: data.toDictionary(), 
       success: { value in
         // Return number data
         assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success((value as! SwiftyJSON.JSON)["updateAll"].number)
+        success((value as! SwiftyJSON.JSON)["info"].number!)
       }, failure: failure)
-    )
   }
 
-  func delete(by id:id
+  func delete(by id:Any
     ,success: @escaping (SwiftyJSON.JSON) -> Void
     ,failure: @escaping ALFailureBlock) {
     invokeStaticMethod("deleteById",
-      parameters: [ id: id ],
+      parameters: [ "id": id ],
       success: { value in
-      }, failure: failure)
-    )
-  }
-
-  func count(with success: @escaping (NSNumber) -> Void
-    ,failure: @escaping ALFailureBlock) {
-    invokeStaticMethod("count",
-      parameters: [  ],
-      success: { value in
-        // Return number data
+        // Return object data
         assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success((value as! SwiftyJSON.JSON)["count"].number)
+        success(value as! SwiftyJSON.JSON)
       }, failure: failure)
-    )
   }
 
-  func count(with where:[AnyHashable:Any]
+  func testNumberMethod(with id:String, keywords:NSNumber
     ,success: @escaping (NSNumber) -> Void
     ,failure: @escaping ALFailureBlock) {
-    invokeStaticMethod("count",
-      parameters: [ where: where ],
+    invokeStaticMethod("testNumberMethod",
+      parameters: [ "id": id, "keywords": keywords ],
       success: { value in
         // Return number data
         assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
-        success((value as! SwiftyJSON.JSON)["count"].number)
+        success((value as! SwiftyJSON.JSON)["body"].number!)
       }, failure: failure)
-    )
+  }
+
+  func testStringMethod(with id:String, keywords:String
+    ,success: @escaping (String) -> Void
+    ,failure: @escaping ALFailureBlock) {
+    invokeStaticMethod("testStringMethod",
+      parameters: [ "id": id, "keywords": keywords ],
+      success: { value in
+        // Return string data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        success((value as! SwiftyJSON.JSON)["body"].string!)
+      }, failure: failure)
+  }
+
+  func testBoolMethod(with id:String, keywords:NSNumber
+    ,success: @escaping (Bool) -> Void
+    ,failure: @escaping ALFailureBlock) {
+    invokeStaticMethod("testBoolMethod",
+      parameters: [ "id": id, "keywords": keywords ],
+      success: { value in
+        // Return bool data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        success((value as! SwiftyJSON.JSON)["body"].bool!)
+      }, failure: failure)
+  }
+
+  func testArrayMethod(with id:String, keywords:Any
+    ,success: @escaping ([SwiftyJSON.JSON]) -> Void
+    ,failure: @escaping ALFailureBlock) {
+    invokeStaticMethod("testArrayMethod",
+      parameters: [ "id": id, "keywords": keywords ],
+      success: { value in
+        // Return array object data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        var models = [SwiftyJSON.JSON]()
+        if let arrayData = (value as! SwiftyJSON.JSON).array {
+            for row in arrayData {
+                models.append(row)
+            }
+        }
+        success(models)
+      }, failure: failure)
+  }
+
+  func testObjectMethod(with id:String, keywords:[AnyHashable:Any]
+    ,success: @escaping (SwiftyJSON.JSON) -> Void
+    ,failure: @escaping ALFailureBlock) {
+    invokeStaticMethod("testObjectMethod",
+      parameters: [ "id": id, "keywords": keywords ],
+      success: { value in
+        // Return object data
+        assert((value is SwiftyJSON.JSON), "Received non-Array: \(String(describing: value))")
+        success(value as! SwiftyJSON.JSON)
+      }, failure: failure)
   }
 }

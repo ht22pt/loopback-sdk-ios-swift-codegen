@@ -2,7 +2,7 @@
 //  ALAddressStruct.swift
 //  demo
 //
-//  Created by Technologies Generator Tools on 19/07/2018.
+//  Created by Technologies Generator Tools on 26/07/2018.
 //  Copyright © 2018 Arrive Technologies. All rights reserved.
 //
 
@@ -11,15 +11,25 @@ import SwiftyJSON
 
 class ALAddressStruct: ALBaseStruct {
 
-  var district: String
-  var house_number: String
-  var more_info: String
+  var _district: String
+  var _house_number: String
+  var _more_info: String
   
   required init(data: JSON) {
-    self.district = data["district"].string ?? ""
-    self.house_number = data["house_number"].string ?? ""
-    self.more_info = data["more_info"].string ?? ""
+    self._district = data["district"].string ?? ""
+    self._house_number = data["house_number"].string ?? ""
+    self._more_info = data["more_info"].string ?? ""
  
     super.init(data: data)
   }
+
+  func toDictionary() -> [AnyHashable:Any] {
+    let data:[AnyHashable:Any] = [
+      "district": self._district,
+      "house_number": self._house_number,
+      "more_info": self._more_info
+    ]
+    return data
+  }
+
 }
