@@ -24,4 +24,15 @@ class ALUserStruct: ALBaseStruct {
         self.status = data["status"].string ?? ""
         super.init(data: data)
     }
+    
+    func toDictionary() -> [AnyHashable:Any] {
+        let data:[AnyHashable:Any] = [
+            "email": self.email,
+            "password": self.password,
+            "realm": self.realm,
+            "emailVerified": self.emailVerified,
+            "status": self.status,
+        ]
+        return data
+    }
 }

@@ -47,7 +47,7 @@ class ALUserRepository: ALBaseModel {
         user["email"] = email
         user["password"] = password
         
-        // TODO: Check dictionary for add data
+        // TODO: Need override from up level
         
         return user
     }

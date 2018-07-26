@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias ALBaseModelFindSuccessBlock = (ALBaseModel?) -> Void
-typealias ALBaseModelFindOneSuccessBlock = (ALBaseModel?) -> Void
-typealias ALBaseModelAllSuccessBlock = ([Any]?) -> Void
+typealias ALBaseModelFindALSuccessBlock = (ALBaseModel?) -> Void
+typealias ALBaseModelFindOneALSuccessBlock = (ALBaseModel?) -> Void
+typealias ALBaseModelAllALSuccessBlock = ([Any]?) -> Void
 
 extension Array {
     func enumerateWithIndex(block: (_ item: Element, _ index: Int)->Void) {
@@ -44,7 +44,7 @@ class ALBaseModel: ALModelRepository {
         return self._contract
     }
     
-    func find(byId _id: Any, success: @escaping ALBaseModelFindSuccessBlock, failure: @escaping ALFailureBlock) {
+    func find(byId _id: Any, success: @escaping ALBaseModelFindALSuccessBlock, failure: @escaping ALFailureBlock) {
         invokeStaticMethod("findById", parameters: ["id": _id], success: { value in
             if let aValue = value {
                 // TODO: Need implement convert json data to model
@@ -55,7 +55,7 @@ class ALBaseModel: ALModelRepository {
         }, failure: failure)
     }
     
-    func all(withSuccess success: @escaping ALBaseModelAllSuccessBlock, failure: @escaping ALFailureBlock) {
+    func all(withSuccess success: @escaping ALBaseModelAllALSuccessBlock, failure: @escaping ALFailureBlock) {
         invokeStaticMethod("all", parameters: nil, success: { value in
             if let aValue = value {
                 // TODO: Check format value
@@ -71,7 +71,7 @@ class ALBaseModel: ALModelRepository {
         }, failure: failure)
     }
     
-    func findOne(withFilter filter: [AnyHashable: Any], success: @escaping ALBaseModelFindOneSuccessBlock, failure: @escaping ALFailureBlock) {
+    func findOne(withFilter filter: [AnyHashable: Any], success: @escaping ALBaseModelFindOneALSuccessBlock, failure: @escaping ALFailureBlock) {
         invokeStaticMethod("findOne", parameters: ["filter": filter], success: { value in
             if let aValue = value {
                 // TODO: Need implement convert json data to model
@@ -82,7 +82,7 @@ class ALBaseModel: ALModelRepository {
         }, failure: failure)
     }
     
-    func find(withFilter filter: [AnyHashable: Any], success: @escaping ALBaseModelAllSuccessBlock, failure: @escaping ALFailureBlock) {
+    func find(withFilter filter: [AnyHashable: Any], success: @escaping ALBaseModelAllALSuccessBlock, failure: @escaping ALFailureBlock) {
         invokeStaticMethod("find", parameters: ["filter": filter], success: { value in
             if let aValue = value {
                 var models = [Any]()

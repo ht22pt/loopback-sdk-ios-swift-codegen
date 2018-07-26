@@ -1,7 +1,11 @@
 {
+  "name": "Book",
   "include": [
+
+  ],
+  "execute": [
+    "prototype.__get__address",
     "create",
-    "__get__address",
     "patchOrCreate",
     "replaceOrCreate",
     "upsertWithWhere",
@@ -10,17 +14,15 @@
     "replaceById",
     "find",
     "findOne",
-    "deleteById",
     "updateAll",
-    "patchAttributes",
+    "deleteById",
+    "count",
+    "prototype.patchAttributes",
     "createChangeStream",
     "testNumberMethod",
     "testStringMethod",
     "testBoolMethod",
     "testArrayMethod",
     "testObjectMethod"
-  ],
-  "execute": [
-
   ]
 }

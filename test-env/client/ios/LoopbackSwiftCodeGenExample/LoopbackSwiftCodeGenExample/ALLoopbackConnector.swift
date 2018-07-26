@@ -32,7 +32,7 @@ class ALLoopbackConnector {
     let appDelegate:AppDelegate? = (UIApplication.shared.delegate as! AppDelegate?)
     
     // AL Loopback Repo
-    var bookRepo:ALBookRepository
+    // var bookRepo:ALBookRepository
     var addessRepo:ALAddressRepository
     var customUserRepo: ALCustomUserRepository
     
@@ -49,7 +49,7 @@ class ALLoopbackConnector {
         self.adapter = AlamofireLBAdapter(url: URL(string:defaultConnection)!, allowsInvalidSSLCertificate: true)
         
         // MARK: Load list model repo api here
-        self.bookRepo = try! self.adapter.repository(with: ALBookRepository.self) as! ALBookRepository
+        // self.bookRepo = try! self.adapter.repository(with: ALBookRepository.self) as! ALBookRepository
         self.addessRepo = try! self.adapter.repository(with: ALAddressRepository.self) as! ALAddressRepository
         self.customUserRepo = try! self.adapter.repository(with: ALCustomUserRepository.self) as! ALCustomUserRepository
     }

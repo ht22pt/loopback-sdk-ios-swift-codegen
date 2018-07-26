@@ -30,7 +30,6 @@
 		8E4F5BCA210964F1003DFB8F /* ALAddressStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F5BC4210964F1003DFB8F /* ALAddressStruct.swift */; };
 		8E4F5BCB210964F1003DFB8F /* ALAddressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F5BC5210964F1003DFB8F /* ALAddressRepository.swift */; };
 		8E4F5BCC210964F1003DFB8F /* ALCustomUserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F5BC6210964F1003DFB8F /* ALCustomUserStruct.swift */; };
-		8E4F5BCD210964F1003DFB8F /* ALBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4F5BC7210964F1003DFB8F /* ALBookRepository.swift */; };
 		936CE82598664E7CEE3F1698 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9161EF0256F6D4FA73BF418 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework */; };
 		D1B10755E364874DB947E252 /* Pods_LoopbackSwiftCodeGenExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042E8E951D0026FF8889FED0 /* Pods_LoopbackSwiftCodeGenExample.framework */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 		8E4F5BC4210964F1003DFB8F /* ALAddressStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALAddressStruct.swift; sourceTree = "<group>"; };
 		8E4F5BC5210964F1003DFB8F /* ALAddressRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALAddressRepository.swift; sourceTree = "<group>"; };
 		8E4F5BC6210964F1003DFB8F /* ALCustomUserStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALCustomUserStruct.swift; sourceTree = "<group>"; };
-		8E4F5BC7210964F1003DFB8F /* ALBookRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALBookRepository.swift; sourceTree = "<group>"; };
 		97841ABF76C6BBFD31D90724 /* Pods-LoopbackSwiftCodeGenExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExample/Pods-LoopbackSwiftCodeGenExample.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB22A390019FFF6840BEAB5 /* Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoopbackSwiftCodeGenExampleUITests/Pods-LoopbackSwiftCodeGenExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9161EF0256F6D4FA73BF418 /* Pods_LoopbackSwiftCodeGenExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoopbackSwiftCodeGenExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +147,6 @@
 			children = (
 				8E4F5BC5210964F1003DFB8F /* ALAddressRepository.swift */,
 				8E4F5BC4210964F1003DFB8F /* ALAddressStruct.swift */,
-				8E4F5BC7210964F1003DFB8F /* ALBookRepository.swift */,
 				8E4F5BC2210964F1003DFB8F /* ALBookStruct.swift */,
 				8E4F5BC3210964F1003DFB8F /* ALCustomUserRepository.swift */,
 				8E4F5BC6210964F1003DFB8F /* ALCustomUserStruct.swift */,
@@ -452,7 +449,6 @@
 				8E2CBC342100747D00329124 /* ALAccessTokenStruct.swift in Sources */,
 				8E4F5BCC210964F1003DFB8F /* ALCustomUserStruct.swift in Sources */,
 				8E2CBC322100747D00329124 /* AlamofireLBAdapter.swift in Sources */,
-				8E4F5BCD210964F1003DFB8F /* ALBookRepository.swift in Sources */,
 				8E2CBC352100747D00329124 /* ALBaseStruct.swift in Sources */,
 				8E40DB8A210026BE00C6877D /* ViewController.swift in Sources */,
 				8E4F5BC9210964F1003DFB8F /* ALCustomUserRepository.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let ALAdapterNotConnectedErrorDescription = "Adapter not connected."
+let AdapterNotConnectedErrorDescription = "Adapter not connected."
 
 /**
  * Blocks of this type are executed for any successful method invocation, i.e.
@@ -50,36 +50,28 @@ typealias ALSuccessBlock = (Any?) -> Void
  */
 typealias ALFailureBlock = (Error?) -> Void
 
-
-enum AFHTTPClientParameterEncoding : Int {
+enum HTTPClientParameterEncoding : Int {
     case FormURLParameterEncoding
     case JsonParameterEncoding
     case PropertyListParameterEncoding
 }
 
-func AFPercentEscapedQueryStringPairMemberFromStringWithEncoding(string: String, encoding: String.Encoding) -> String {
-    // let kAFCharactersToBeEscaped:CFString = ":/?&=;+!@#$()',*" as CFString
-    // let kAFCharactersToLeaveUnescaped:CharacterSet = CharacterSet(charactersIn: "[].")
-    let str:NSString = string as NSString
-    return str.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-}
-
-class ALQueryStringPair: NSObject {
-    var field: AnyHashable?
-    var value: Any?
+class QueryStringPair {
+    var field: String
+    var value: Any
     
-    init(field: AnyHashable, value: Any) {
-        super.init()
+    init(field: String, value: Any) {
         self.field = field
         self.value = value
     }
     
     func urlEncodedStringValue(with stringEncoding: String.Encoding) -> String? {
-        if value == nil || value is NSNull {
-            return AFPercentEscapedQueryStringPairMemberFromStringWithEncoding(string: field!.description, encoding: stringEncoding)
-        } else {
-            return "\(AFPercentEscapedQueryStringPairMemberFromStringWithEncoding(string: field!.description, encoding: stringEncoding))=\(AFPercentEscapedQueryStringPairMemberFromStringWithEncoding(string: (value as AnyObject).description, encoding: stringEncoding))"
+        if self.value is NSNull {
+            return self.field.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         }
+        let key:String? = self.field.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        let value:String? = (self.value as AnyObject).description.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        return "\(key!)=\(value!)"
     }
 }
 
@@ -95,7 +87,7 @@ class AlamofireLBAdapter {
     var contract: ALRESTContract!
     
     private var baseUrl:URL
-    private var clientEncoding:AFHTTPClientParameterEncoding = .JsonParameterEncoding
+    private var clientEncoding:HTTPClientParameterEncoding = .JsonParameterEncoding
     private var stringEncoding:String.Encoding = String.Encoding.utf8
     private var clientHeaders:[String:String] = [String:String]()
     
@@ -121,14 +113,11 @@ class AlamofireLBAdapter {
     
     private func connect(to url: URL) {
         // Ensure terminal slash for baseURL path, so that NSURL +URLWithString:relativeToURL: works as expected
-        /*
         if (url.path.count ) > 0 && !url.absoluteString.hasSuffix("/") {
             self.baseUrl = url.appendingPathComponent("/")
         }
-        */
         self.connected = true
         self.clientEncoding = .JsonParameterEncoding
-        // client.registerHTTPOperationClass(SLAFJSONRequestOperation.self)
         self.setDefaultHeader("Accept", value: "application/json")
     }
     
@@ -142,43 +131,43 @@ class AlamofireLBAdapter {
         // Function model call by adapter
     }
     
-    func _queryStringPairsFromDictionary(dictionary: [AnyHashable:Any]) -> [ALQueryStringPair] {
-        return SLAFQueryStringPairsFromKeyAndValue(key: nil, value: dictionary)
+    private func queryStringPairsFromDictionary(dictionary: Any) -> [QueryStringPair] {
+        return queryStringPairsFromKeyAndValue(key: nil, value: dictionary)
     }
     
-    func SLAFQueryStringPairsFromKeyAndValue(key: String?, value: Any?) -> [ALQueryStringPair] {
-        var mutableQueryStringComponents = [ALQueryStringPair]()
+    private func queryStringPairsFromKeyAndValue(key: String?, value: Any) -> [QueryStringPair] {
+        var mutableQueryStringComponents = [QueryStringPair]()
+        
         if (value is [AnyHashable: Any]) {
-            let dictionary = value as! [AnyHashable: Any]
+            let dictionary:[AnyHashable: Any] = value as! [AnyHashable: Any]
             // Sort dictionary keys to ensure consistent ordering in query string, which is important when deserializing potentially ambiguous sequences, such as an array of dictionaries
-            
             for nestedKey:AnyHashable in dictionary.keys.sorted(by: { $0.description < $1.description }) {
                 if let nestedValue = dictionary[nestedKey] {
                     let keyData:String = key != nil ? "\(key!)[\(nestedKey)]" : nestedKey as! String
-                    mutableQueryStringComponents.append(contentsOf: SLAFQueryStringPairsFromKeyAndValue(key: keyData, value: nestedValue))
+                    mutableQueryStringComponents.append(contentsOf: queryStringPairsFromKeyAndValue(key: keyData, value: nestedValue))
                 }
             }
         } else if (value is [Any]) {
             if let array:[Any] = value as? [Any] {
                 for nestedValue:Any in array {
-                    mutableQueryStringComponents.append(contentsOf: SLAFQueryStringPairsFromKeyAndValue(key: "\(key!)[]", value: nestedValue))
+                    mutableQueryStringComponents.append(contentsOf: queryStringPairsFromKeyAndValue(key: "\(key!)[]", value: nestedValue))
                 }
             }
         } else if (value is Set<AnyHashable>) {
             if let setData = value as? Set<AnyHashable> {
                 for obj:Any in setData {
-                    mutableQueryStringComponents.append(contentsOf: SLAFQueryStringPairsFromKeyAndValue(key: key, value: obj))
+                    mutableQueryStringComponents.append(contentsOf: queryStringPairsFromKeyAndValue(key: key, value: obj))
                 }
             }
         } else {
-            mutableQueryStringComponents.append(ALQueryStringPair(field: key!, value: value!))
+            mutableQueryStringComponents.append(QueryStringPair(field: key!, value: value))
         }
         return mutableQueryStringComponents
     }
     
     private func queryStringFromParametersWithEncoding(parameters: [AnyHashable:Any]?, stringEncoding: String.Encoding) -> String? {
         var mutablePairs = [String]()
-        for pair: ALQueryStringPair in self._queryStringPairsFromDictionary(dictionary: parameters!) {
+        for pair: QueryStringPair in self.queryStringPairsFromDictionary(dictionary: parameters!) {
             if let anEncoding = pair.urlEncodedStringValue(with: stringEncoding) {
                 mutablePairs.append(anEncoding)
             }
@@ -186,6 +175,11 @@ class AlamofireLBAdapter {
         return mutablePairs.joined(separator: "&")
     }
     
+    /// Init Repository with class name
+    ///
+    /// - Parameter type: class name
+    /// - Returns: a object Repository
+    /// - Throws: exception when no any Repository match with class name
     func repository(with type: AnyClass) throws -> ALBaseModel {
         if !type.isSubclass(of: ALBaseModel.self) {
             throw NSException(name: .invalidArgumentException, reason: "Argument needs to be a subclass of ALBaseModel", userInfo: nil) as! Error
@@ -200,7 +194,7 @@ class AlamofireLBAdapter {
         repository.adapter = self
     }
     
-    func makeRequest(withMethod method: String, path: String?, parameters: [AnyHashable:Any]?) -> URLRequest? {
+    private func makeRequest(withMethod method: String, path: String?, parameters: [AnyHashable:Any]?) -> URLRequest {
         var url:URL = URL(string: path ?? "", relativeTo: self.baseUrl)!
         var request:URLRequest = URLRequest(url: url)
         request.httpMethod = method
@@ -213,6 +207,7 @@ class AlamofireLBAdapter {
                 url = URL(string: urlWithQuery)!
                 request.url = url
             } else {
+                // Action POST
                 let charset = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(stringEncoding.rawValue)) as String?
                 let error: Error? = nil
                 switch self.clientEncoding {
@@ -221,12 +216,9 @@ class AlamofireLBAdapter {
                     request.httpBody = self.queryStringFromParametersWithEncoding(parameters: parameters, stringEncoding: stringEncoding)?.data(using: stringEncoding)
                 case .JsonParameterEncoding:
                     request.setValue("application/json; charset=\(charset ?? "")", forHTTPHeaderField: "Content-Type")
-                    //clang diagnostic push
-                    //clang diagnostic ignored "-Wassign-enum"
                     if let aParameters = parameters {
                         request.httpBody = try? JSONSerialization.data(withJSONObject: aParameters, options: [])
                     }
-                    //clang diagnostic pop
                 case .PropertyListParameterEncoding:
                     request.setValue("application/x-plist; charset=\(charset ?? "")", forHTTPHeaderField: "Content-Type")
                     if let aParameters = parameters {
@@ -243,11 +235,7 @@ class AlamofireLBAdapter {
         return request
     }
 
-    
-    ///
-    /// Send request to server with data
-    ///
-    func request(withPath path: String,
+    private func request(withPath path: String,
                 verb: String,
                 parameters: [AnyHashable: Any]?,
                 bodyParameters: [AnyHashable: Any]?,
@@ -256,12 +244,12 @@ class AlamofireLBAdapter {
     {
         var fullPath:String = "\(self.baseUrl.absoluteString)\(path)"
         let _parameters = (parameters?.count ?? 0 > 0) ? parameters : nil
-        assert(connected, ALAdapterNotConnectedErrorDescription)
+        assert(connected, AdapterNotConnectedErrorDescription)
         // Remove the leading / so that the path is treated as relative to the baseURL
         if fullPath.hasPrefix("/") {
             fullPath = String(path[path.startIndex...])
         }
-        var request: URLRequest?
+        var request: URLRequest
         if (verb == "GET") || (verb == "HEAD") || (verb == "DELETE") {
             request = self.makeRequest(withMethod: verb, path: fullPath, parameters: _parameters)
         } else {
@@ -269,13 +257,13 @@ class AlamofireLBAdapter {
             request = self.makeRequest(withMethod: verb, path: fullPath, parameters: bodyParameters)
             if _parameters != nil {
                 let queryStr:String = self.queryStringFromParametersWithEncoding(parameters: _parameters, stringEncoding: self.stringEncoding) ?? ""
-                let url = URL(string: request?.url?.absoluteString ?? "" + ("?\(queryStr)"))
-                request?.url = url
+                let url = URL(string: request.url?.absoluteString ?? "" + ("?\(queryStr)"))
+                request.url = url
             }
         }
         
         // Make client request and send to server
-        Alamofire.request(request!)
+        Alamofire.request(request)
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -300,12 +288,10 @@ class AlamofireLBAdapter {
         self.invokeStaticMethod(method, parameters: &parameters, bodyParameters: nil, success: success, failure: failure)
     }
     
-    func invokeStaticMethod(_ method: String?, parameters: inout [AnyHashable: Any]?, bodyParameters: [AnyHashable: Any]?, success: @escaping ALSuccessBlock, failure: @escaping ALFailureBlock) {
+    func invokeStaticMethod(_ method: String?, parameters: inout [AnyHashable: Any]?, bodyParameters:[AnyHashable: Any]?, success: @escaping ALSuccessBlock, failure: @escaping ALFailureBlock) {
         assert((self.contract != nil), "Invalid contract.")
         let verb = self.contract!.verb(forMethod: method!)
         let path = self.contract!.url(forMethod: method!, parameters: &parameters)
-        // let multipart: Bool = self.contract.multipart(forMethod: method)
-        let multipart: Bool = false
         self.request(withPath: path!, verb: verb, parameters: parameters, bodyParameters: bodyParameters, success: success, failure: failure)
     }
     
@@ -321,7 +307,6 @@ class AlamofireLBAdapter {
         for (k, v) in parameters! { combinedParameters![k] = v }
         let verb = contract?.verb(forMethod: method!)
         let path = contract?.url(forMethod: method!, parameters: &combinedParameters)
-        let multipart: Bool = contract!.multipart(forMethod: method!)
         request(withPath: path!, verb: verb!, parameters: combinedParameters, bodyParameters: bodyParameters, success: success, failure: failure)
     }
 }
