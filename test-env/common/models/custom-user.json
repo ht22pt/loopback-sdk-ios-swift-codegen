@@ -1,0 +1,18 @@
+{
+  "name": "CustomUser",
+  "base": "User",
+  "idInjection": false,
+  "forceId": false,
+  "emailVerificationRequired": false,
+  "properties": {
+    "email": {"type": "String", "id": true},
+    "avatar_url": {"type": "string"},
+    "firstname": {"type": "string"},
+    "lastname": {"type": "string"},
+    "device_token": {"type": ["string"], "default": []}
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

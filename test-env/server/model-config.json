@@ -39,5 +39,9 @@
   "Address": {
     "dataSource": "db",
     "public": true
+  },
+  "CustomUser": {
+    "dataSource": "db",
+    "public": true
   }
 }

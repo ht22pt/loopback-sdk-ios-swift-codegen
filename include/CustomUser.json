@@ -1,0 +1,38 @@
+{
+  "name": "CustomUser",
+  "include": [
+    "resetPassword",
+    "changePassword",
+    "setPassword"
+  ],
+  "execute": [
+    "prototype.__findById__accessTokens",
+    "prototype.__destroyById__accessTokens",
+    "prototype.__updateById__accessTokens",
+    "prototype.__get__accessTokens",
+    "prototype.__create__accessTokens",
+    "prototype.__delete__accessTokens",
+    "prototype.__count__accessTokens",
+    "create",
+    "patchOrCreate",
+    "replaceOrCreate",
+    "upsertWithWhere",
+    "exists",
+    "findById",
+    "replaceById",
+    "find",
+    "findOne",
+    "updateAll",
+    "deleteById",
+    "count",
+    "prototype.patchAttributes",
+    "createChangeStream",
+    "login",
+    "logout",
+    "prototype.verify",
+    "confirm",
+    "resetPassword",
+    "changePassword",
+    "setPassword"
+  ]
+}
